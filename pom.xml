@@ -86,10 +86,10 @@
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.3</version>
-				<configuration>
+				<!--<configuration>
 					<source>1.7</source>
 					<target>1.6</target>
-				</configuration>
+				</configuration> -->
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
