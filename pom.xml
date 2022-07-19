@@ -5,8 +5,7 @@
 	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>seleniumPractice</name>
-	<url>http://maven.apache.org</url>
-	
+	<url>http://maven.apache.org</url>	
 	<properties>
 		<selenium.java.version>4.3.0</selenium.java.version>
 		<selenium.drivermanager.version>5.2.0</selenium.drivermanager.version>
