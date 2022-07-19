@@ -102,6 +102,9 @@
                     -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     -Dcucumber.options="--plugin io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"
                 </argLine>
+                <systemPropertyVariables>
+                <Browser>${Browser}</Browser>
+                </systemPropertyVariables>
 				</configuration>
 				<dependencies>
 					<dependency>

@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.interactions.Actions;
 
 import io.cucumber.java.en.Given;
@@ -19,11 +21,28 @@ public class XpathPracticeSteps {
 	
 	@Given("launch the application")
 	public void launch_the_application() {
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--incognito");
-		options.addArguments("--disable-site-isolation-trials");
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(options);
+		String Browser = System.getProperty("Browser");
+		switch (Browser) {
+		case "chrome": {
+			
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--incognito");
+			options.addArguments("--disable-site-isolation-trials");
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver(options);
+			break;
+		}
+		case "edge":
+			EdgeOptions options = new EdgeOptions();
+			options.addArguments("--incognito");
+			options.addArguments("--disable-site-isolation-trials");
+			WebDriverManager.edgedriver().setup();
+			driver = new EdgeDriver(options);
+			break;
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + Browser);
+		}
+		
 		driver.manage().window().maximize();
 		driver.get("https://www.hyrtutorials.com");
 	    driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
